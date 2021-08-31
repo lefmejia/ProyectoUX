@@ -2,3 +2,55 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    
+.thumb{
+    display: flex;
+}
+
+.mi-primera-class {
+    background-color: rgb(101 47 162);
+  }
+  
+  .background-cyan {
+    background-color: cyan;
+  }
+  
+  #mi-contenedor {
+    background-color: cyan;
+  }
+  
+  hr {
+    border-color: chocolate;
+  }
+  
+  .thumbnail {
+    background-color: #bc93e4;
+    min-height: 100px;
+    max-width: 300px;
+    margin: 20px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+/*   
+  .thumbnail:hover {
+    background-color: #8b58bd;
+    cursor: pointer;
+  } */
+
+  .thumbnail-text{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .thumbnail-text h1{
+}
+  .thumblink {
+    width: 100%;
+    display: flex;
+}
+
+.col-md-4{
+    padding-left: 0px;
+}
+

@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-component',
   template: `
     <crunchy-navbar></crunchy-navbar>
+    <router-outlet></router-outlet>
   `
 })
 export class AppComponent {
