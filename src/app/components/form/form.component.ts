@@ -15,7 +15,6 @@ export class FormComponent implements OnInit {
   email = '';
   pass = '';
   nombre = '';
-  apellido = '';
   direccion = '';
 
   constructor(public auth: AngularFireAuth, private router: Router) {}
@@ -74,7 +73,7 @@ export class FormComponent implements OnInit {
   register() {
     this.auth
       .createUserWithEmailAndPassword(this.email, this.pass)
-      .then((user) => {
+      .then(async (user) => {
         console.log(user);
         this.router.navigate(['login']);
         Swal.fire({
@@ -83,6 +82,9 @@ export class FormComponent implements OnInit {
           title: 'Cuenta creada exitosamente',
           showConfirmButton: false,
           timer: 1500,
+        });
+        (await this.auth.currentUser).updateProfile({
+          displayName: this.nombre,
         });
       })
       .catch((err) => console.log('Error user: ', err));
