@@ -24,14 +24,15 @@ export class FormComponent implements OnInit {
   }
 
   loginWithGoogle(){
-    this.auth.signInWithPopup(new GoogleAuthProvider)
-    this.router.navigate(['welcome']);
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'LogIn Succesful',
-      showConfirmButton: false,
-      timer: 1500
+    this.auth.signInWithPopup(new GoogleAuthProvider).then(res =>{
+      this.router.navigate(['welcome']);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'LogIn Succesful',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
   }
   
