@@ -22,6 +22,7 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './components/form/form.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { CartComponent } from './cart/cart/cart.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProfileComponent } from './profile/profile/profile.component';
     LoginComponent,
     PizzaThumbnailComponent,
     FormComponent,
-    ProfileComponent
+    ProfileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
