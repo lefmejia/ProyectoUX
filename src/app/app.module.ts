@@ -15,6 +15,16 @@ import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { LoginComponent } from './login/login.component';
 import { PizzaThumbnailComponent } from './thumbnail.component';
 
+//firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/compat/auth'
+import { FormsModule } from '@angular/forms';
+import { FormComponent } from './components/form/form.component';
+import { ProfileComponent } from './profile/profile/profile.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,18 +34,22 @@ import { PizzaThumbnailComponent } from './thumbnail.component';
     MenuComponent,
     CrearCuentaComponent,
     LoginComponent,
-    PizzaThumbnailComponent
+    PizzaThumbnailComponent,
+    FormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
     HttpClientModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-//Probando si funca el push
