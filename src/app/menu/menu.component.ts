@@ -25,6 +25,11 @@ export class MenuComponent implements OnInit {
         imageUrl: "assets/img/BUFFALOCHICKEN.png",
         nombre: "Buffalo Chicken"
       },
+      {
+        id:3,
+        imageUrl: "assets/img/SUPREMA.jpg",
+        nombre: "Suprema"
+      }
     ]
   }
 
