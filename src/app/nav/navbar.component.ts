@@ -1,19 +1,18 @@
 import { Component } from "@angular/core";
+import { PizzaServiceService } from "../pizza-service.service";
 
 @Component({
   selector: "crunchy-navbar",
   templateUrl: "./navbar.component.html",
-  styles: [
-    `
-      .navbar-default {
-        background-color: #bc93e4;
-        color: white;
-      }
-
-      a {
-        color: white;
-      }
-    `,
-  ],
+  styleUrls:['./navbar.component.css']
 })
-export class NavBarComponent {}
+export class NavBarComponent {
+  constructor(public service: PizzaServiceService){
+
+  }
+
+  llamarLogOut()
+  {
+    this.service.logOut();
+  }
+}

@@ -1,0 +1,57 @@
+<div *ngIf="auth.user | async as user; else elseBlock">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <h2>Email: {{ user.email }}</h2>
+  <!-- <code> {{user | json}}</code> -->
+  <hr />
+  <br />
+  <div class="mb-3 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label"
+      >Modificar Nombre</label
+    >
+    <div class="col-sm-5">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="nombre"
+        placeholder="{{ user.displayName }}"
+      />
+      <button (click)="editarNombre()">Modificar Nombre</button>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label"
+      >Modificar Email</label
+    >
+    <div class="col-sm-5">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="email"
+        placeholder="{{ user.email }}"
+      />
+      <button (click)="editarEmail()">Modificar Email</button>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label"
+      >Modificar Password</label
+    >
+    <div class="col-sm-5">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="password"
+        placeholder="************"
+      />
+      <button (click)="editarPassword()">Modificar Password</button>
+    </div>
+  </div>
+  
+</div>
+<ng-template #elseBlock>
+  <div class="center">
+    <button class="btn btn-primary" (click)="noLogIn()">Click Aqui!!!</button>
+  </div>
+</ng-template>

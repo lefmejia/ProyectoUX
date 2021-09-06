@@ -18,24 +18,42 @@
         <a class="nav-link" [routerLink]="['/menu']">Ordenar</a>
         <!-- <a class="nav-link">Ordenar</a> -->
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/login']">Login</a>
-        <!-- <a class="nav-link">Ordenar</a> -->
-      </li>
-      <li class="nav-item">
-        <!-- <a class="nav-link">Crear clase</a> -->
-        <a class="nav-link" [routerLink]="['/signup']">Crear cuenta</a>
+      <li class="nav-item active" id="cart">
+        <a class="nav-link" [routerLink]="['/cart']"
+          ><img src="assets/img/cart.png" width="30px" height="30px"
+        /></a>
       </li>
     </ul>
     <!-- <div style="width: 60%"></div> -->
     <div
-      style="position: absolute; right: 0px; width: 150px; padding: 10px"
+      style="position: absolute; right: 0px; padding: 10px"
       class="navbar-header navbar-right"
     >
       <ul class="nav navbar-nav">
-        <li>
-          <a>Login</a>
+        <!-- LOGIN -->
+        <li class="nav-item active">
+          <div *ngIf="this.service.auth.user | async">
+            <button class="btn btn-danger" (click)="llamarLogOut()">Log Out</button>
+          </div>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/login']"
+            ><img
+              src="assets/img/login.png"
+              width="30px"
+              height="30px"
+              aria-placeholder="LogIn"
+          /></a>
+          <!-- <a class="nav-link">Ordenar</a> -->
+        </li>
+        <!--USER-->
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/profile']"
+            ><img src="assets/img/user.png" width="35px" height="35px"
+          /></a>
+          <!-- <a class="nav-link">Ordenar</a> -->
+        </li>
+        
       </ul>
     </div>
   </div>
