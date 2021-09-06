@@ -48,26 +48,38 @@ export class FormComponent implements OnInit {
   }
 
   customLogin() {
-    this.auth
-      .signInWithEmailAndPassword(this.email, this.pass)
-      .then((res) => {
-        console.log(res);
-        this.router.navigate(['welcome']);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'LogIn Succesful',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      })
-      .catch((err) => Swal.fire({
+    if (this.email == '' || this.pass == '') {
+      Swal.fire({
         position: 'top-end',
         icon: 'warning',
-        title: 'Usuario no encontrado',
+        title: 'Los campos no deben de estar vacios',
         showConfirmButton: false,
         timer: 1500,
-      }));
+      });
+    } else {
+      this.auth
+        .signInWithEmailAndPassword(this.email, this.pass)
+        .then((res) => {
+          console.log(res);
+          this.router.navigate(['welcome']);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'LogIn Succesful',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
+        .catch((err) =>
+          Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Usuario no encontrado',
+            showConfirmButton: false,
+            timer: 1500,
+          })
+        );
+    }
   }
 
   register() {
