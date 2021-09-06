@@ -14,6 +14,7 @@ import { MenuComponent } from './menu/menu.component';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { LoginComponent } from './login/login.component';
 import { PizzaThumbnailComponent } from './thumbnail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PizzaThumbnailComponent } from './thumbnail.component';
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
     HttpClientModule,
+    FormsModule,
     NgbModule,
     BrowserAnimationsModule
   ],

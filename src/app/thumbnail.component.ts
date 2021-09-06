@@ -34,13 +34,19 @@ import { Router } from "@angular/router";
         color: purple;
       }
       .btn-primary{
-        background: black;
+        background: hsl(0, 0%, 50%);;
         border: none;
         flex: 1;
       }
+      .btn-primary:hover{
+        background: hsl(0, 0%, 20%);;
+      }
       .btn-secondary{
-        background: orange;
+        background: hsl(39, 100%, 50%);
         border: none;
+      }
+      .btn-secondary:hover{
+        background: hsl(39, 100%, 35%);
       }
     `,
   ],

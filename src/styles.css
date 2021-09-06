@@ -7,12 +7,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
 }
 
+.container{
+  background-color: #eee;
+  padding-top: 1px;
+}
+
 .mi-primera-class {
     background-color: rgb(101 47 162);
   }
   
   .background-cyan {
-    background-color: cyan;
+    background-color: hsl(0, 0%, 50%);
   }
   
   #mi-contenedor {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearCuentaComponent implements OnInit {
 
-  constructor() { }
+  email;
+  password;
+  nombre;
+  apellido;
+  username;
+  phoneNumber;
+
+  tieneDatos: boolean = true;
+
+  constructor(private router: Router) {}
+
+  fnSalvar(data) {
+    
+  }
+  fnCheck(data) {
+    debugger;
+    console.log(data);
+  }
 
   ngOnInit(): void {
   }
