@@ -73,7 +73,7 @@ export class FormComponent implements OnInit {
         .catch((err) =>
           Swal.fire({
             position: 'top-end',
-            icon: 'warning',
+            icon: 'error',
             title: 'Usuario no encontrado',
             showConfirmButton: false,
             timer: 1500,
@@ -83,6 +83,15 @@ export class FormComponent implements OnInit {
   }
 
   register() {
+    if (this.email == '' || this.pass == '' || this.nombre =='' || this.direccion=='') {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Los campos no deben de estar vacios',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } else {
     this.auth
       .createUserWithEmailAndPassword(this.email, this.pass)
       .then(async (user) => {
@@ -100,5 +109,6 @@ export class FormComponent implements OnInit {
         });
       })
       .catch((err) => console.log('Error user: ', err));
+    }
   }
 }

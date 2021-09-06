@@ -61,4 +61,13 @@ export class ProfileComponent implements OnInit {
       const email = (await user).email;
     }
   }
+
+  noLogIn(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'No estas loggeado!',
+      footer: '<a href="/login">Log In</a>'
+    })
+  }
 }
