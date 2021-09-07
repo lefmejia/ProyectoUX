@@ -4,6 +4,7 @@
         <div *ngFor="let pizza of pizzaList" class="col-md-4">
             <pizza-thumbnail
               [pizzaUx]="pizza"
+              (evtpizzaUx)="addToCart($event)"
             ></pizza-thumbnail>
           </div>
     </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 import { pizza } from '../models/pizza.model';
+import { PizzaServiceService } from '../pizza-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,27 +12,21 @@ export class MenuComponent implements OnInit {
   pizzaList: pizza[];
 
 
-  constructor() { }
+  constructor(public service: PizzaServiceService, private cartService: CartService) { }
 
   ngOnInit(): void {
 
-    this.pizzaList = [
-      {
-        id:1,
-        imageUrl: "assets/img/4ESTACIONES.jpg",
-        nombre: "4 Estaciones"
-      },
-      {
-        id:2,
-        imageUrl: "assets/img/BUFFALOCHICKEN.png",
-        nombre: "Buffalo Chicken"
-      },
-      {
-        id:3,
-        imageUrl: "assets/img/SUPREMA.jpg",
-        nombre: "Suprema"
-      }
-    ]
+    this.pizzaList = this.service.pizzaList;
+
+    this.pizzaList.forEach((a:any)=>{
+      Object.assign(a, {quantity:1, total: a.precio})
+    });
+  }
+
+  addToCart(item: any)
+  {
+    this.cartService.addToCart(item);
+    console.log(item);
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
+import { CartService } from "./cart.service";
+import { PizzaServiceService } from "./pizza-service.service";
 
 @Component({
   selector: "pizza-thumbnail",
@@ -12,7 +14,7 @@ import { Router } from "@angular/router";
         <h1><strong>{{ pizzaUx.nombre }}</strong></h1>
         <div class="thumblink">
           <a class="btn btn-primary">Pedir Ahora</a>
-          <a class="btn btn-secondary">Agregar al carrito</a>
+          <a class="btn btn-secondary" (click)="addToCart(pizzaUx)">Agregar al carrito</a>
         </div>
       </div>
     </div>
@@ -55,7 +57,12 @@ export class PizzaThumbnailComponent {
   @Input() pizzaUx: any;
   @Output() evtpizzaUx = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public service: PizzaServiceService, private cartService: CartService) {}
+
+  addToCart(item: any){
+    this.evtpizzaUx.emit(item);
+    
+  }
 
   clickMe(id) {
     // this.evtpizzaUx.emit(this.pizzaUx.nombre);

@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<div class="container">
+
+    <div *ngFor="let product of products" class="col-md-4 lista">
+        <div class="row">
+            <table>
+                <tbody>
+                    <td><img src={{product.imageUrl}} width="100px"></td>
+                    <td><div><h3><strong>{{product.nombre}}</strong></h3></div></td>
+                    <td><div><h3><strong>{{product.precio}}</strong></h3></div></td>
+                </tbody>
+            </table>
+                 
+        </div>
+    </div>
+    <div class="total">
+        <h2><strong>Total: {{grandTotal}}</strong></h2>
+    </div>
+</div>

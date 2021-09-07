@@ -1,0 +1,14 @@
+.row{
+    display: inline-block;
+    margin: 2px;
+}
+
+.lista{
+    width: 90%;
+}
+
+.lista:nth-child(odd){
+    background-color: rgb(160, 160, 160);
+    
+    flex-direction: row;
+}
