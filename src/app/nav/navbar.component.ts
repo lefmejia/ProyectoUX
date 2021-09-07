@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { PizzaServiceService } from "../pizza-service.service";
+import { PizzaServiceService } from "../services/pizza-service.service";
 
 @Component({
   selector: "crunchy-navbar",
