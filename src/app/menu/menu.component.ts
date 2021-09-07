@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { pizza } from '../models/pizza.model';
-import { PizzaServiceService } from '../pizza-service.service';
+import { PizzaServiceService } from 'src/app/services/pizza-service.service';
 
 @Component({
   selector: 'app-menu',

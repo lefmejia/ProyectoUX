@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
-import { CartService } from "./cart.service";
-import { PizzaServiceService } from "./pizza-service.service";
+import { CartService } from "./services/cart.service";
+import { PizzaServiceService } from "src/app/services/pizza-service.service";
 
 @Component({
   selector: "pizza-thumbnail",

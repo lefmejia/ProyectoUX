@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Auth, GoogleAuthProvider } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import { pizza } from './models/pizza.model';
+import { pizza } from '../models/pizza.model';
 
 @Injectable({
   providedIn: 'root'
