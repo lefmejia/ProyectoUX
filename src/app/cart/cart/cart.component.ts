@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { PizzaServiceService } from 'src/app/services/pizza-service.service';
+import Swal from 'sweetalert2';
 import {Email} from './../../../assets/smtp.js';
 //declare let Email: any;
 
@@ -26,15 +27,6 @@ export class CartComponent implements OnInit {
   }
 
   sendEmail() {
-
-    // this.service.auth.onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     // User is signed in.
-    //   } else {
-    //     // No user is signed in.
-    //   }
-    // });
-    //[disabled]="this.products.length === 0"
     this.service.auth.user.subscribe((data) => {
       if(data == null){
         this.router.navigate(["/login"]);
@@ -58,7 +50,11 @@ export class CartComponent implements OnInit {
         Subject: "NUEVA ORDEN!!!!!",
         Body: mensaje,
       }).then(function (message) {
-        alert("correo enviado exitosamente");
+        Swal.fire(
+          'Orden Confirmada!!!!',
+          'Buen provecho!!!!',
+          'success'
+        )
       });
       }
         this.products = [];

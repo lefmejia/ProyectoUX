@@ -20,36 +20,55 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {}
 
   async editarNombre() {
-    (await this.auth.currentUser).updateProfile({
-      displayName: this.nombre,
-    });
     Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Nombre Modificado Correctamente',
-      showConfirmButton: false,
-      timer: 1000,
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success');
+        (await this.auth.currentUser).updateProfile({
+          displayName: this.nombre,
+        });
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
+      }
     });
   }
+
   async editarEmail() {
-    (await this.auth.currentUser).updateEmail(this.email)
     Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Email Modificado Correctamente',
-      showConfirmButton: false,
-      timer: 1000,
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success');
+        (await this.auth.currentUser).updateEmail(this.email);
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
+      }
     });
   }
 
   async editarPassword() {
-    (await this.auth.currentUser).updatePassword(this.password)
     Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Password Modificada Correctamente',
-      showConfirmButton: false,
-      timer: 1000,
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success');
+        (await this.auth.currentUser).updatePassword(this.password);
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
+      }
     });
   }
 
@@ -62,12 +81,12 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  noLogIn(){
+  noLogIn() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'No estas loggeado!',
-      footer: '<a href="/login">Log In</a>'
-    })
+      footer: '<a href="/login">Log In</a>',
+    });
   }
 }
