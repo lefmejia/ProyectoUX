@@ -29,7 +29,8 @@ export const AppRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "", redirectTo: "/welcome", pathMatch: "full" },
   {path: "profile", component:ProfileComponent},
-  {path: "cart", component:CartComponent}
+  {path: "cart", component:CartComponent},
+  {path: "menu", component:MenuComponent}
   //{ path: "404", component: Clase404Component },
   
 ];
