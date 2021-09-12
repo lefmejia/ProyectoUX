@@ -1,39 +1,88 @@
 <div class="card">
-    <div class="card-header">
-      {{pageTitle}}
-    </div>
-    <div class="card-body">
-      <div class="container-fluid text-center">
-        <a><h1>Bienvenido a Crunchy Royal Pizza!</h1></a>
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="container-fluid text-center">
+      <a><h1>Bienvenido a Crunchy Royal Pizza!</h1></a>
 
-        <hr>
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="assets/img/banner1.jpg" class="d-block w-100" >
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img/banner2.jpg" class="d-block w-100" >
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img/banner3.jpg" class="d-block w-100" >
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+      <hr />
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/assets/img/banner1.jpg" class="d-block w-100" alt="First Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/assets/img/banner2.jpg" class="d-block w-100" alt="Second Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="/assets/img/banner3.jpg" class="d-block w-100" alt="Third Slide">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
   </div>
+</div>
+
+<div style="display: flex;">
+  <div class="card" style="width: 18rem; margin-right: 50px; margin-left: 100px;">
+    <img src="/assets/img/4ESTACIONES.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h2 class="card-title">4 Estaciones</h2>
+      <p align="justify" class="card-text">Pizza sencilla, con base de tomate y queso mozzarella, que se monta distinguiendo las cuatro partes, en lugar de distribuir todos los ingredientes repartidos por la pizza. Así en cada uno de las cuatro porciones, encontramos los ingredientes que se corresponden con una estación del año.</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/menu']">Ver en Menu</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem; margin-right: 50px;">
+    <img src="/assets/img/BUFFALOCHICKEN.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h2 class="card-title">Buffalo Chicken Pizza</h2>
+      <p align="justify" class="card-text">Buffalo Chicken - Pechuga de pollo, salsa picante Buffalo, cebollas y perejil con queso provolone y americano sobre una cruz de queso cheddar</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/menu']">Ver en Menu</a>
+    </div>
+  </div>
+  
+  <div class="card" style="width: 18rem; margin-right: 50px;">
+    <img src="/assets/img/CANADIENSE.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h2 class="card-title">Pizza Canadiense</h2>
+      <p align="justify" class="card-text">
+        Elaborada con pepperoni, carne de res y cerdo, champiñones, chile verde y cebolla.</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/menu']">Ver en Menu</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem; margin-right: 50px;">
+    <img src="/assets/img/PEPPERONI.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h2 class="card-title">Pizza de Pepperoni</h2>
+      <p align="justify" class="card-text">Pizza clasica de pepperoni con queso mozzarella al gusto</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/menu']">Ver en Menu</a>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="footer-copyright text-center py-3">© 2020 Copyright:
+  <a href="#">CrunchyRoyalPizza.com</a>
+</div>

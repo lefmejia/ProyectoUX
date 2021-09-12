@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { pizza } from '../models/pizza.model';
 import { PizzaServiceService } from 'src/app/services/pizza-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu',
@@ -27,6 +28,18 @@ export class MenuComponent implements OnInit {
   {
     this.cartService.addToCart(item);
     console.log(item);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Pizza agregada al carrito!!!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+
+  crearOrden(){
+    
   }
 
 }
