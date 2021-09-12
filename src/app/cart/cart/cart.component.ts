@@ -58,10 +58,11 @@ export class CartComponent implements OnInit {
         Subject: "NUEVA ORDEN!!!!!",
         Body: mensaje,
       }).then(function (message) {
-        alert("correo enviado exitosamente")
+        alert("correo enviado exitosamente");
       });
       }
-
+        this.products = [];
+        this.grandTotal = 0;
     });
     
   }
