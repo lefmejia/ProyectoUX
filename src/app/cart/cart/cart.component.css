@@ -12,3 +12,13 @@
     
     flex-direction: row;
 }
+
+tbody{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+td{
+    margin-left: 10px;
+}
