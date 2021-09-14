@@ -1,46 +1,98 @@
 <div *ngIf="auth.user | async; else showLogin">
-    <h4>Ya estas logeado</h4>
-    <button class="btn btn-danger" (click)="logOut()">Log Out</button>
+  <h4>Ya estas logeado</h4>
+  <button class="btn btn-danger" (click)="logOut()">Log Out</button>
 </div>
 
 <ng-template #showLogin>
-    <div class="col-6 mx-auto">
-        <div class="mb-3 row">
-            <label for="staticEmail" class="col-sm-2 col-form-label" id="email">Email</label>
-            <div class="col-sm-10"><input type="text" class="form-control" [(ngModel)]="email" name="email"/></div>
+  <div style="background-color: firebrick; height: 550px">
+    <div class="col-6 mx-auto" id="formulario">
+      <div id="inputs">
+        <div class="mb-3 row" id="email">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="email"
+              name="email"
+            />
+          </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" [(ngModel)]="pass" name="pass"/>
-            </div>
+          <label for="inputPassword" class="col-sm-2 col-form-label"
+            >Password</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="pass"
+              name="pass"
+            />
+          </div>
         </div>
-        <div class="d-grid gap-2 d-md-flex" *ngIf="action==='login'">
-            <button class="btn btn-primary" (click)="loginWithGoogle()">Login with Google</button>
-            <button class="btn btn-primary" (click)="customLogin()">Login with Email</button>
-
-            <!-- Link para crear una cuenta nueva -->
-        <li class="nav-item">
-            <!-- <a class="nav-link">Crear clase</a> -->
-            <a class="nav-link" [routerLink]="['/signup']">Crear cuenta</a>
-          </li>
-        </div>
-
-        <!-- Div solo para el crear cuenta -->
-        <div *ngIf="action==='register'">
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
-                <div class="col-sm-10"><input type="text" class="form-control" [(ngModel)]="nombre" name="nombre"/></div>
-            </div>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Direccion</label>
-                <div class="col-sm-10"><input type="text" class="form-control" [(ngModel)]="direccion" name="direccion"/></div>
-            </div>
-
-            <button class="btn btn-primary" *ngIf="action==='register'" (click)="register()">Crear Cuenta</button>
+      </div>
+      <div *ngIf="action === 'login'">
+        <div id="boton-login">
+          <button class="btn btn-primary btn-login" (click)="customLogin()">
+            Login with Email
+          </button>
         </div>
 
+        <div id="boton-google">
+            <button class="btn btn-primary btn-login btn-google" (click)="loginWithGoogle()">Login with Google</button>
+        </div>
+      </div>
+
+      <!-- Link para crear una cuenta nueva -->
+      <div id="link">
+        <a class="nav-link" [routerLink]="['/signup']">Crear cuenta</a>
+      </div>
+
+      <!-- Div solo para el crear cuenta -->
+      <div *ngIf="action === 'register'">
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"
+            >Nombre</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="nombre"
+              name="nombre"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"
+            >Direccion</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="direccion"
+              name="direccion"
+            />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-primary"
+          *ngIf="action === 'register'"
+          (click)="register()"
+        >
+          Crear Cuenta
+        </button>
+      </div>
     </div>
+  </div>
 </ng-template>
 
-
+<div class="footer-copyright text-center py-3" style="position:absolute;
+bottom:0;
+width:100%;
+height:60px">© 2021 Copyright:
+    <a [routerLink]="['']">CrunchyRoyalPizza.com</a>
+  </div>

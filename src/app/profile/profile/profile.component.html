@@ -15,7 +15,7 @@
         [(ngModel)]="nombre"
         placeholder="{{ user.displayName }}"
       />
-      <button (click)="editarNombre()">Modificar Nombre</button>
+      <button style="margin-top: 10px;" class="btn btn-warning" (click)="editarNombre()">Modificar Nombre</button>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
         [(ngModel)]="email"
         placeholder="{{ user.email }}"
       />
-      <button (click)="editarEmail()">Modificar Email</button>
+      <button style="margin-top: 10px;" class="btn btn-warning" (click)="editarEmail()">Modificar Email</button>
     </div>
   </div>
 
@@ -45,7 +45,7 @@
         [(ngModel)]="password"
         placeholder="************"
       />
-      <button (click)="editarPassword()">Modificar Password</button>
+      <button style="margin-top: 10px;" class="btn btn-warning" (click)="editarPassword()">Modificar Password</button>
     </div>
   </div>
   
@@ -55,3 +55,11 @@
     <button class="btn btn-primary" (click)="noLogIn()">Click Aqui!!!</button>
   </div>
 </ng-template>
+
+
+<div class="footer-copyright text-center py-3" style="position:absolute;
+bottom:0;
+width:100%;
+height:60px">© 2021 Copyright:
+    <a [routerLink]="['']">CrunchyRoyalPizza.com</a>
+  </div>
