@@ -18,11 +18,13 @@ import { FormsModule } from '@angular/forms';
 
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { FormComponent } from './components/form/form.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { CartComponent } from './cart/cart/cart.component';
+import { CrearComboComponent } from './crear-combo/crear-combo.component';
 
 
 
@@ -38,7 +40,8 @@ import { CartComponent } from './cart/cart/cart.component';
     PizzaThumbnailComponent,
     FormComponent,
     ProfileComponent,
-    CartComponent
+    CartComponent,
+    CrearComboComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { CartComponent } from './cart/cart/cart.component';
     NgbModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireAuthModule,
     FormsModule

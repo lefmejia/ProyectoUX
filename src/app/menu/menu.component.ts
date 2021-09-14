@@ -10,14 +10,17 @@ import Swal from 'sweetalert2';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  pizzaList: pizza[];
+  pizzaList: any[];
 
 
   constructor(public service: PizzaServiceService, private cartService: CartService) { }
 
   ngOnInit(): void {
-
-    this.pizzaList = this.service.pizzaList;
+    this.service.db.list('menu').valueChanges().subscribe(productos => {
+      console.log(productos);
+      this.pizzaList = productos;
+    });
+    //this.pizzaList = this.service.pizzaList;
 
     this.pizzaList.forEach((a:any)=>{
       Object.assign(a, {quantity:1, total: a.precio})

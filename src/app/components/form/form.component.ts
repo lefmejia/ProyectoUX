@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { Auth, GoogleAuthProvider } from 'firebase/auth';
+//import { Auth, GoogleAuthProvider } from 'firebase/auth';
 import { PizzaServiceService } from 'src/app/services/pizza-service.service';
 import Swal from 'sweetalert2';
 

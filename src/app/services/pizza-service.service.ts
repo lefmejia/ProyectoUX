@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { Auth, GoogleAuthProvider } from 'firebase/auth';
+import { Auth, GoogleAuthProvider, getAuth} from 'firebase/auth';
 import Swal from 'sweetalert2';
 import { pizza } from '../models/pizza.model';
+import { async, Observable } from '@firebase/util';
+import firebase from '@firebase/app-compat';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +18,35 @@ export class PizzaServiceService {
   email = '';
   pass = '';
   nombre = '';
-  direccion = '';
+  direccion = ''; 
 
-  constructor(public auth: AngularFireAuth, private router: Router) {}
+  constructor(public auth: AngularFireAuth, private router: Router, public db: AngularFireDatabase) {
+    this.loggedIn = !!sessionStorage.getItem('user');
+  }
   isAuthenticated = new BehaviorSubject<boolean>(false);
+  public loggedIn = false;
+  private user: Observable<firebase.default.User>;
+  private userDetails: firebase.default.User = null;
+
+  setCurrentUser(correo: string): void {
+    sessionStorage.setItem('user', correo);
+    this.loggedIn = true;
+  }
+  isAdmin(): boolean{
+    
+
+    if(this.auth.user){
+      console.log(this.auth.user);
+      return getAuth().currentUser.email === 'admin@gmail.com';
+      
+    }
+    return false;
+  }
+
+  isLoggedIn() {
+    return this.loggedIn;
+}
+
 
   loginWithGoogle() {
     this.auth.signInWithPopup(new GoogleAuthProvider()).then((res) => {
@@ -30,10 +59,23 @@ export class PizzaServiceService {
         timer: 1500,
       });
     });
+
+    if (this.userDetails) {
+      let correo = this.userDetails.email;
+      console.log("hello im user" + " " + correo);
+      // setting user in session here --->
+      this.setCurrentUser(correo);
+      } else {
+          console.log("not working");
+      }
   }
 
   logOut() {
+    //console.log(getAuth().currentUser.email);
+    sessionStorage.removeItem('user');
+    this.loggedIn = false;
     this.auth.signOut();
+    
     Swal.fire({
       position: 'top-end',
       icon: 'warning',
@@ -76,6 +118,14 @@ export class PizzaServiceService {
           })
         );
     }
+    if (this.userDetails) {
+      let correo = this.userDetails.email;
+      console.log("hello im user" + " " + correo);
+      // setting user in session here --->
+      this.setCurrentUser(correo);
+      } else {
+          console.log("not working");
+      }
   }
 
   register() {

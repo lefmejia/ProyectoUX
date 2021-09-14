@@ -32,10 +32,16 @@
       <ul class="nav navbar-nav">
         <!-- LOGIN -->
         <li class="nav-item active">
+          <div>
+            <button class="btn btn-danger" [routerLink]="['/combo']">Crear combo</button>
+          </div>
+        </li>
+        <li class="nav-item active">
           <div *ngIf="this.service.auth.user | async">
             <button class="btn btn-danger" (click)="llamarLogOut()">Log Out</button>
           </div>
         </li>
+        
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/login']"
             ><img

@@ -61,8 +61,7 @@ export class CartComponent implements OnInit {
         alert("correo enviado exitosamente");
       });
       }
-        this.products = [];
-        this.grandTotal = 0;
+        this.cartService.removeAllCart();
     });
     
   }
