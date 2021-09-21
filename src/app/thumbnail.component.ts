@@ -13,7 +13,7 @@ import { PizzaServiceService } from "src/app/services/pizza-service.service";
       <div class="thumbnail-text">
         <h1><strong>{{ pizzaUx.nombre }}</strong></h1>
         <div class="thumblink">
-          <a class="btn btn-primary">Pedir Ahora</a>
+          <a class="btn btn-primary">Ver Detalles</a>
           <a class="btn btn-secondary" (click)="addToCart(pizzaUx)">Agregar al carrito</a>
         </div>
       </div>

@@ -31,7 +31,6 @@ export const AppRoutes: Routes = [
   { path: "", redirectTo: "/welcome", pathMatch: "full" },
   {path: "profile", component:ProfileComponent},
   {path: "cart", component:CartComponent},
-  {path: "menu", component:MenuComponent},
   {path: "combo", component:CrearComboComponent}
   //{ path: "404", component: Clase404Component },
   

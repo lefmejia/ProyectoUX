@@ -1,11 +1,20 @@
 <div class="container">
-    <h1 class="menu-title" style="font-size: 50px; margin-top: 10px;"><strong>Menu</strong></h1>
-    <div class="thumb">
-        <div *ngFor="let pizza of pizzaList" class="col-md-4">
-            <pizza-thumbnail
-              [pizzaUx]="pizza"
-              (evtpizzaUx)="addToCart($event)"
-            ></pizza-thumbnail>
-          </div>
+  <h1 class="menu-title" style="font-size: 50px; margin-top: 10px">
+    <strong>Menu</strong>
+  </h1>
+  <div *ngIf="auth.user | async as user">
+    <div *ngIf="user.displayName == 'Admin' || user.email == 'admin@gmail.com'">
+      <button class="btn btn-danger" [routerLink]="['/combo']">
+        Crear combo
+      </button>
     </div>
   </div>
+  <div class="thumb">
+    <div *ngFor="let pizza of pizzaList" class="col-md-4">
+      <pizza-thumbnail
+        [pizzaUx]="pizza"
+        (evtpizzaUx)="addToCart($event)"
+      ></pizza-thumbnail>
+    </div>
+  </div>
+</div>

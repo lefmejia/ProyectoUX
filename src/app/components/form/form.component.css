@@ -5,7 +5,11 @@
   background-color: white;
   position: relative;
   top: +50px;
+  border-radius: 20px;
 }
+
+
+
 
 #inputs {
   position: relative;
@@ -41,4 +45,20 @@
 
 .btn-google {
   background-color: #db4437;
+}
+
+#boton_CrearCuenta{
+  position: relative;
+  top: +50px;
+  margin-left: 150px;
+}
+
+
+#loggeado{
+
+  margin-top: 50px;
+  position: relative;
+  top: +50px;
+  margin-left: 700px;
+  
 }

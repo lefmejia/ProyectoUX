@@ -3,6 +3,9 @@ import { CartService } from '../services/cart.service';
 import { pizza } from '../models/pizza.model';
 import { PizzaServiceService } from 'src/app/services/pizza-service.service';
 import Swal from 'sweetalert2';
+//auth
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-menu',
@@ -12,8 +15,11 @@ import Swal from 'sweetalert2';
 export class MenuComponent implements OnInit {
   pizzaList: any[];
 
+  //user
+  email: string;
+  nombre: string;
 
-  constructor(public service: PizzaServiceService, private cartService: CartService) { }
+  constructor(public service: PizzaServiceService, private cartService: CartService, public auth: AngularFireAuth) { }
 
   ngOnInit(): void {
     this.service.db.list('menu').valueChanges().subscribe(productos => {
@@ -40,9 +46,12 @@ export class MenuComponent implements OnInit {
     })
   }
 
-
-  crearOrden(){
-    
+  async mostrar() {
+    const user = this.auth.currentUser;
+    if (user !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      const displayName = (await user).displayName;
+      const email = (await user).email;
+    }
   }
-
 }
