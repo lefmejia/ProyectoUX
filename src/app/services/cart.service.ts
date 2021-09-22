@@ -33,6 +33,7 @@ export class CartService {
   {
     let granTotal = 0;
     this.cartList.map((a:any)=>{
+      console.log(a.total);
       granTotal += a.total;
     })
     return granTotal;

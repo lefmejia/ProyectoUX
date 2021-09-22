@@ -28,6 +28,13 @@ export class CartComponent implements OnInit {
     });
   }
 
+  removeItem(product:any):void{
+    // this.cartService.removeCartItem(product);
+    this.cartService.removeAllCart();
+    this.grandTotal = this.cartService.getTotalPrice();
+  }
+  
+
   sendEmail() {
     this.service.auth.user.subscribe((data) => {
       if (data == null) {
@@ -38,8 +45,9 @@ export class CartComponent implements OnInit {
         Detalle de la orden:<br/>
       `;
         this.products.forEach((product) => {
-          mensaje += `${product.nombre}\t\t    L. ${product.precio} <br/>`;
+          mensaje += `${product.nombre}\t\t    L. ${product.precio} x${product.quantity} <br/>`;
         });
+        mensaje += ` _____________________________________________<br/>Total: L. ${this.grandTotal}`;
 
         if (this.grandTotal > 0) {
           Email.send({
@@ -51,7 +59,10 @@ export class CartComponent implements OnInit {
             Subject: 'NUEVA ORDEN!!!!!',
             Body: mensaje,
           }).then(function (message) {
-            Swal.fire('Orden Confirmada!!!!', 'Buen provecho!!!!', 'success');
+            Swal.fire('Orden Confirmada!!!!', 'Buen provecho!!!!', 'success').then(function(){
+              //this.cartService.removeAllCart();
+              window.location.reload();
+            });
           });
         }else{
           Swal.fire({
@@ -62,7 +73,6 @@ export class CartComponent implements OnInit {
           })
         }
       }
-        this.cartService.removeAllCart();
     });
   }
 }
