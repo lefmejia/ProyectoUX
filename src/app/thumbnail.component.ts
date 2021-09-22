@@ -50,6 +50,10 @@ import { PizzaServiceService } from "src/app/services/pizza-service.service";
       .btn-secondary:hover{
         background: hsl(39, 100%, 35%);
       }
+
+      img{
+        height:300px;
+      }
     `,
   ],
 })
