@@ -54,6 +54,8 @@ export class CrearComboComponent implements OnInit {
     // this.service.db.object('menu').valueChanges().subscribe(item =>{
     //   console.log(item);
     // });
+    console.log('menuitem');
+
     this.service.db.object('menu').valueChanges().pipe(take(1)).subscribe(item =>{
         //console.log(item[Object.keys(item)[Object.keys(item).length -1]]['id']);
         
@@ -64,6 +66,7 @@ export class CrearComboComponent implements OnInit {
   }
 
   writeUserData(imageUrl, itemid) {
+    console.log('writedata')
     let menuItem = {};
     menuItem = {
       "id" : itemid,
@@ -87,15 +90,28 @@ export class CrearComboComponent implements OnInit {
     
     const storage = getStorage();
     const storageRef = ref(storage, filename);
+    console.log('algo1');
 
     uploadBytes(storageRef, this.fileList[0]).then((snapshot) => {
       
       
-    });
+    }).then(
+      ()=>{
+        getDownloadURL(storageRef).then(data =>{
+          console.log('algo3');
+    
+          this.getMenuItemID(data);
+        }).catch((error)=>{
+          console.log('algo 4 error');
+    
+        });
+      }
+    );
+    console.log('algo2');
 
-    getDownloadURL(storageRef).then(data =>{
-      this.getMenuItemID(data);
-    });
+    
+    console.log('algo5');
+
   }  
 
 }
