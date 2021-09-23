@@ -33,9 +33,35 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
     this.grandTotal = this.cartService.getTotalPrice();
   }
+
+  //generar id de compra
+  makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
   
 
-  sendEmail() {
+  async sendEmail() {
+    //crear un id para la orden
+    var token = this.makeid(10)
+
+    //inout de la direccio de la orden
+    
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Direccion para la orden => ' + token,
+      inputPlaceholder: 'Ingrese direccion para la orden...',
+      inputAttributes: {
+        'aria-label': 'Ingrese direccion...'
+      },
+    })
+
     this.service.auth.user.subscribe((data) => {
       if (data == null) {
         this.router.navigate(['/login']);
@@ -48,6 +74,7 @@ export class CartComponent implements OnInit {
           mensaje += `${product.nombre}\t\t    L. ${product.precio} x${product.quantity} <br/>`;
         });
         mensaje += ` _____________________________________________<br/>Total: L. ${this.grandTotal}`;
+        mensaje += `<br/> <br/> Direccion para la orden: \t ${text}`;
 
         if (this.grandTotal > 0) {
           Email.send({
@@ -56,7 +83,7 @@ export class CartComponent implements OnInit {
             Password: 'Proyectoux123',
             From: 'crunchyrollpizza@gmail.com',
             To: 'crunchyrollpizza@gmail.com',
-            Subject: 'NUEVA ORDEN!!!!!',
+            Subject: 'NUEVA ORDEN!!         Id Order: ' + token,
             Body: mensaje,
           }).then(function (message) {
             Swal.fire('Orden Confirmada!!!!', 'Buen provecho!!!!', 'success').then(function(){
