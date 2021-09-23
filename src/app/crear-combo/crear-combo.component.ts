@@ -4,6 +4,7 @@ import { PizzaServiceService } from '../services/pizza-service.service';
 import { getDatabase, set, query } from "firebase/database";
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class CrearComboComponent implements OnInit {
 
   nombre;
   precio;
+  descripcion;
   id:number;
 
   constructor(public service: PizzaServiceService) { }
@@ -72,20 +74,13 @@ export class CrearComboComponent implements OnInit {
       "id" : itemid,
       "imageUrl" : imageUrl,
       "nombre" : this.nombre,
-      "precio" : this.precio
+      "precio" : this.precio,
+      "descripcion" : this.descripcion
     }
     this.service.db.list('menu').push(menuItem);
   }
 
   saveCombo() {
-
-    // if (files.length > 1) this.error = "Only one file at time allow";
-    // else {
-    //   this.error = "";
-    //   console.log(files[0].size,files[0].name,files[0].type);
-    //   this.draggedFiles = files;
-    //   console.log(files);
-    // }
     let filename = this.fileList[0].name;
     
     const storage = getStorage();
@@ -99,6 +94,13 @@ export class CrearComboComponent implements OnInit {
       ()=>{
         getDownloadURL(storageRef).then(data =>{
           console.log('algo3');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Combo creado exitosamente!!!',
+            showConfirmButton: false,
+            timer: 1500
+          })
     
           this.getMenuItemID(data);
         }).catch((error)=>{

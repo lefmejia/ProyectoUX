@@ -8,6 +8,10 @@
             <label for="staticEmail" class="col-sm-2 col-form-label">Precio</label>
             <div class="col-sm-10"><input type="text" class="form-control" [(ngModel)]="precio" name="precio"/></div>
         </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Descripcion</label>
+            <div class="col-sm-10"><input type="text" class="form-control" [(ngModel)]="descripcion" name="descripcion"/></div>
+        </div>
 
         <div class="card">
             <div (dragover)="onDragOver($event)" (drop)="onDropSuccess($event)">
@@ -16,31 +20,7 @@
                   Add Attachment...
                 </label>
               </div>
-            <!-- <div draggable="true" ngClass="{{dragAreaClass}}">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        Drag files here
-                        <a href="javascript:void(0)" (click)="file.click()">
-                            or click to open
-                        </a>
-                        <input type="file"
-                               #file
-                               [multiple]="false"
-                               style="display:none" />
-                    <div class="dragged-files-wrapper" *ngIf="draggedFiles">
-                      <div class="file" *ngFor="let file of draggedFiles">
-                        {{file}}
-                      </div>
-                    </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="error" *ngIf="error">
-                    Only one file at time allow
-                </div>
-    
-                
-            </div> -->
+
         </div>
         <button class="btn btn-primary" (click)="saveCombo()">Crear Combo</button>
 </div>
