@@ -25,6 +25,7 @@ import { FormComponent } from './components/form/form.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { CrearComboComponent } from './crear-combo/crear-combo.component';
+import { ComboDetailComponent } from './combo-detail/combo-detail.component';
 
 
 
@@ -41,7 +42,8 @@ import { CrearComboComponent } from './crear-combo/crear-combo.component';
     FormComponent,
     ProfileComponent,
     CartComponent,
-    CrearComboComponent
+    CrearComboComponent,
+    ComboDetailComponent
   ],
   imports: [
     BrowserModule,
