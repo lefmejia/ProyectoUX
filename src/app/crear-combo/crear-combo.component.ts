@@ -54,19 +54,17 @@ export class CrearComboComponent implements OnInit {
     // this.service.db.object('menu').valueChanges().subscribe(item =>{
     //   console.log(item);
     // });
-    console.log('menuitem');
 
     this.service.db.object('menu').valueChanges().pipe(take(1)).subscribe(item =>{
         //console.log(item[Object.keys(item)[Object.keys(item).length -1]]['id']);
         
-        this.writeUserData(url, item[Object.keys(item)[Object.keys(item).length -1]]['id']+1);
+        this.writeUserData(url, item[Object.keys(item)[0]]['id']+1); //Object.keys(item).length -1
         //console.log(id);
         //return id;//[Object.keys(item)[Object.keys(item).length -2]];
     });
   }
 
   writeUserData(imageUrl, itemid) {
-    console.log('writedata')
     let menuItem = {};
     menuItem = {
       "id" : itemid,
@@ -98,19 +96,13 @@ export class CrearComboComponent implements OnInit {
     }).then(
       ()=>{
         getDownloadURL(storageRef).then(data =>{
-          console.log('algo3');
     
           this.getMenuItemID(data);
         }).catch((error)=>{
-          console.log('algo 4 error');
     
         });
       }
     );
-    console.log('algo2');
-
-    
-    console.log('algo5');
 
   }  
 

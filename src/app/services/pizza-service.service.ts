@@ -159,24 +159,24 @@ export class PizzaServiceService {
   }
 
   pizzaList: pizza[] = [
-    {
-      id:1,
-      imageUrl: "assets/img/4ESTACIONES.jpg",
-      nombre: "4 Estaciones",
-      precio: 250
-    },
-    {
-      id:2,
-      imageUrl: "assets/img/BUFFALOCHICKEN.png",
-      nombre: "Buffalo Chicken",
-      precio: 300,
-    },
-    {
-      id:3,
-      imageUrl: "assets/img/SUPREMA.jpg",
-      nombre: "Suprema",
-      precio: 220
-    }
+    // {
+    //   id:1,
+    //   imageUrl: "assets/img/4ESTACIONES.jpg",
+    //   nombre: "4 Estaciones",
+    //   precio: 250
+    // },
+    // {
+    //   id:2,
+    //   imageUrl: "assets/img/BUFFALOCHICKEN.png",
+    //   nombre: "Buffalo Chicken",
+    //   precio: 300,
+    // },
+    // {
+    //   id:3,
+    //   imageUrl: "assets/img/SUPREMA.jpg",
+    //   nombre: "Suprema",
+    //   precio: 220
+    // }
   ]
   
 }

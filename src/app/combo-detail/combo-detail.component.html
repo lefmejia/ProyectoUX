@@ -1,1 +1,67 @@
-<p>combo-detail works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-11">
+        <img src={{combo.imageUrl}} width="300">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div><strong>Nombre: {{combo?.nombre}}</strong> </div>
+      </div>
+      <div class="col-md-6">
+        <div><strong>Precio: {{combo?.precio}}</strong> </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div><strong>Descripcion: {{combo?.descripcion}}</strong> </div>
+      </div>
+      
+    </div>
+    <br>
+    <br>
+    <form *ngIf="this.service.auth.user | async as user" #comboForm="ngForm" (ngSubmit)="fnSalvar(user.displayName)">
+        <div
+          class="form-group"
+          [ngClass]="{
+            error:
+              comboForm.controls.contenido?.invalid &&
+              comboForm.controls.contenido?.touched
+          }"
+        >
+          <em
+            *ngIf="
+              comboForm.controls.contenido?.invalid &&
+              comboForm.controls.contenido?.touched
+            "
+            >Este es requerido!</em
+          >
+          <input
+            [(ngModel)]="contenido"
+            type="text"
+            class="form-control"
+            id="contenido"
+            name="contenido"
+            placeholder="Escribe tu review aqui..."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <button
+            type="submit"
+            [disabled]="comboForm.invalid"
+            class="btn btn-success"
+          >
+            Post
+          </button>
+        </div>
+      </form>
+    <br>
+    <div class="col-md-6">
+        <div><strong>Reviews:</strong> </div>
+        <div class="container" *ngFor="let review of reviews | keyvalue">
+            <div><strong>{{review.value.usuario}}:</strong> </div>
+            <div><strong>{{review.value.contenido}}</strong> </div>
+        </div>
+    </div>
+  </div>

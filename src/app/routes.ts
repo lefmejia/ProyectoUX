@@ -1,6 +1,7 @@
 import { ViewChild } from "@angular/core";
 import { Routes } from "@angular/router";
 import { CartComponent } from "./cart/cart/cart.component";
+import { ComboDetailComponent } from "./combo-detail/combo-detail.component";
 import { FormComponent } from "./components/form/form.component";
 import { CrearComboComponent } from "./crear-combo/crear-combo.component";
 import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
@@ -20,6 +21,11 @@ export const AppRoutes: Routes = [
   {
     path: "menu",
     component: MenuComponent,
+    //canDeactivate: [ClassRouteDeactivate],
+  },
+  {
+    path: "menu/:id",
+    component: ComboDetailComponent,
     //canDeactivate: [ClassRouteDeactivate],
   },
   {
