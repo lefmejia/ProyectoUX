@@ -47,7 +47,7 @@ import { ComboDetailComponent } from './combo-detail/combo-detail.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, {useHash: true}),
     HttpClientModule,
     FormsModule,
     NgbModule,
@@ -56,7 +56,7 @@ import { ComboDetailComponent } from './combo-detail/combo-detail.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

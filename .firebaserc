@@ -1,6 +1,7 @@
 {
   "projects": {
-    "proyectoux": "proyectoux-28a79"
+    "proyectoux": "proyectoux-28a79",
+    "default": "proyectoux-28a79"
   },
   "targets": {
     "proyectoux-28a79": {
